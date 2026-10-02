@@ -1,0 +1,11 @@
+# Salidas de compilacion de NetBeans
+build/
+dist/
+
+# Configuracion local de NetBeans (rutas de Tomcat de cada maquina)
+nbproject/private/
+
+# Sistema operativo
+Thumbs.db
+desktop.ini
+.DS_Store

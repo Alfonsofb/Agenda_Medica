@@ -159,4 +159,14 @@ CREATE TABLE IF NOT EXISTS Accesos_Expediente (
         ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
+-- Usuario administrador inicial (contraseña: admin123, hash BCrypt)
+INSERT IGNORE INTO Usuarios (Usuario, Password, Nombre, Rol, Activo)
+VALUES (
+    'admin',
+    '$2a$12$3R.FKD5facVyTn/Z9ug4leQF33Lw0LuFW57md34eocUt/TnhXDF/2',
+    'Administrador',
+    'ADMIN',
+    TRUE
+);
+
 SHOW TABLES;

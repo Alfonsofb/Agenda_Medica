@@ -34,8 +34,8 @@
             
             background: Linear-gradient(
             135deg,
-            #0d6efd,
-            #084298
+            #0d8a8a,
+            #0a5c5c
             );
             
             min-height: 100vh;
@@ -62,7 +62,7 @@
             
            .logo-icon {
                  font-size: 80px;
-                color: #0d6efd;
+                color: #0d8a8a;
                 display: inline-block;    
                 transform: scaleX(1.4
                     );    
@@ -100,9 +100,9 @@
             }
             input:focus {
                 outline: none;
-                border-color:  #0d6efd;
+                border-color:  #0d8a8a;
                 box-shadow: 
-                    0 0 5px rgba(13,110,253,0.3);
+                    0 0 5px rgba(13,138,138,0.3);
                 
             }
             button {
@@ -110,7 +110,7 @@
                 padding: 13px;
                 border: none;
                 border-radius: 8px;
-                background: #0d6efd;
+                background: #0d8a8a;
                 color: white;
                 font-size: 17px;
                 cursor: pointer;
@@ -118,7 +118,7 @@
             }
             
             button:hover {
-                background: #084298;
+                background: #0a5c5c;
                 
             }
             

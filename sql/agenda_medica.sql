@@ -17,11 +17,11 @@ CREATE TABLE IF NOT EXISTS Usuarios (
 CREATE TABLE IF NOT EXISTS Medicos (
     Id INT AUTO_INCREMENT PRIMARY KEY,
     Usuario_Id INT UNIQUE,
+    Cedula_Profesional VARCHAR(30) NOT NULL UNIQUE,
     Nombre VARCHAR(100) NOT NULL,
     Apellido_Paterno VARCHAR(100) NOT NULL,
     Apellido_Materno VARCHAR(100),
-    Especialidad VARCHAR(100),
-    Cedula_Profesional VARCHAR(20) UNIQUE,
+    Especialidad VARCHAR(100) NOT NULL,
     Telefono VARCHAR(20),
     Correo VARCHAR(150),
     Activo BOOLEAN NOT NULL DEFAULT TRUE,

@@ -10,9 +10,6 @@ import org.mindrot.jbcrypt.BCrypt;
 
 public class UsuarioDAO {
 
-    // ============================================================
-    // INSERTAR USUARIO
-    // ============================================================
     public boolean insertar(Usuario u) {
 
         String sql =
@@ -24,7 +21,6 @@ public class UsuarioDAO {
              PreparedStatement ps =
                      conexion.prepareStatement(sql)) {
 
-            // Generar hash BCrypt
             String passwordHash =
                     BCrypt.hashpw(
                             u.getPassword(),
@@ -50,9 +46,6 @@ public class UsuarioDAO {
         }
     }
 
-    // ============================================================
-    // BUSCAR USUARIO POR USUARIO
-    // ============================================================
     public Usuario buscarPorUsuario(String usuario) {
 
         String sql =

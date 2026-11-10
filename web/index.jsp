@@ -5,8 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="Utilidades.Permisos"%>
 <%
-    // Verificar que exista una sesión iniciada
     String usuario = (String) session.getAttribute("usuario");
 
     if (usuario == null) {
@@ -40,8 +40,8 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #f1f5f9;
-            color: #1e293b;
+            background: #eef7f6;
+            color: #16323a;
         }
 
         header {
@@ -51,10 +51,11 @@
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 2px 8px #00000012;
+            border-bottom: 4px solid #14a3a3;
         }
 
         .marca {
-            color: #0f4c81;
+            color: #0b6e6e;
             font-size: 24px;
             font-weight: bold;
         }
@@ -80,7 +81,7 @@
         }
 
         .bienvenida p {
-            color: #64748b;
+            color: #5b7a80;
         }
 
         .tarjetas {
@@ -96,7 +97,7 @@
             padding: 25px;
             border-radius: 12px;
             box-shadow: 0 3px 12px #0000000c;
-            border-top: 4px solid #1677ff;
+            border-top: 4px solid #14a3a3;
         }
 
         .tarjeta h2 {
@@ -105,14 +106,14 @@
         }
 
         .tarjeta p {
-            color: #64748b;
+            color: #5b7a80;
             font-size: 14px;
             line-height: 1.5;
         }
 
         .boton {
             display: inline-block;
-            background: #1677ff;
+            background: #0d8a8a;
             color: white;
             padding: 10px 16px;
             border-radius: 7px;
@@ -121,21 +122,21 @@
         }
 
         .boton:hover {
-            background: #095dcc;
+            background: #0a6b6b;
         }
 
         .expediente {
-            border-top-color: #16a085;
+            border-top-color: #e05a6b;
         }
 
         .expediente .boton {
-            background: #12836c;
+            background: #c94a5a;
         }
 
         footer {
             text-align: center;
             padding: 25px;
-            color: #64748b;
+            color: #5b7a80;
             font-size: 13px;
         }
 
@@ -177,17 +178,21 @@
 
     <section class="tarjetas">
 
+        <% if (Permisos.puede(rol, Permisos.PACIENTES)) { %>
         <article class="tarjeta">
             <h2>Pacientes</h2>
             <p>Registro y administración de los datos de los pacientes.</p>
-            <span class="boton">Próximamente</span>
+            <a class="boton" href="PacienteServlet">Abrir</a>
         </article>
+        <% } %>
 
+        <% if (Permisos.puede(rol, Permisos.MEDICOS)) { %>
         <article class="tarjeta">
             <h2>Médicos</h2>
             <p>Información de los médicos y sus datos profesionales.</p>
-            <span class="boton">Próximamente</span>
+            <a class="boton" href="MedicoServlet">Abrir</a>
         </article>
+        <% } %>
 
         <article class="tarjeta">
             <h2>Agenda de citas</h2>

@@ -1,7 +1,5 @@
 package mx.edu.cesba.servlet;
 
-/// --> mx.edu.cesba.servlet
-
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -25,17 +23,14 @@ public class LoginServlet extends HttpServlet {
             HttpServletResponse response)
             throws ServletException, IOException {
 
-        // UTF-8
         request.setCharacterEncoding("UTF-8");
 
-        // Obtener datos del formulario
         String usuario
                 = request.getParameter("usuario");
 
         String password
                 = request.getParameter("password");
 
-        // Validar que los campos no estén vacíos
         if (usuario == null || usuario.trim().isEmpty()
                 || password == null || password.isEmpty()) {
 
@@ -43,17 +38,14 @@ public class LoginServlet extends HttpServlet {
             return;
         }
 
-        // Buscar usuario en la base de datos
         UsuarioDAO dao
                 = new UsuarioDAO();
 
         Usuario usuarioEncontrado
                 = dao.buscarPorUsuario(usuario);
 
-        // Verificar usuario
         if (usuarioEncontrado != null) {
 
-            // Verificar que esté activo
             if (!usuarioEncontrado.isActivo()) {
 
                 response.sendRedirect(
@@ -63,7 +55,6 @@ public class LoginServlet extends HttpServlet {
                 return;
             }
 
-            // Verificar contraseña con BCrypt
             boolean passwordCorrecta = false;
 
             try {
@@ -72,13 +63,11 @@ public class LoginServlet extends HttpServlet {
                         usuarioEncontrado.getPassword()
                 );
             } catch (IllegalArgumentException e) {
-                // El hash almacenado no tiene un formato válido.
                 passwordCorrecta = false;
             }
 
             if (passwordCorrecta) {
 
-                // Crear sesión
                 HttpSession sesion
                         = request.getSession();
 
@@ -97,17 +86,14 @@ public class LoginServlet extends HttpServlet {
                         usuarioEncontrado.getRol()
                 );
 
-                // Evitar reutilizar sesión anterior
                 request.changeSessionId();
 
-                // Entrar al sistema
                 response.sendRedirect(
                         "index.jsp"
                 );
 
             } else {
 
-                // Contraseña incorrecta
                 response.sendRedirect(
                         "Login.jsp?error=1"
                 );
@@ -115,7 +101,6 @@ public class LoginServlet extends HttpServlet {
 
         } else {
 
-            // Usuario no encontrado
             response.sendRedirect(
                     "Login.jsp?error=1"
             );

@@ -194,11 +194,13 @@
         </article>
         <% } %>
 
+        <% if (Permisos.puede(rol, Permisos.CITAS)) { %>
         <article class="tarjeta">
             <h2>Agenda de citas</h2>
             <p>Organización de horarios, citas y disponibilidad médica.</p>
-            <span class="boton">Próximamente</span>
+            <a class="boton" href="CitaServlet">Abrir</a>
         </article>
+        <% } %>
 
         <article class="tarjeta">
             <h2>Consultas</h2>

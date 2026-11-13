@@ -28,7 +28,15 @@ public class Permisos {
         PERMISOS.put(ADMIN, todo);
         PERMISOS.put(MEDICO, todo);
         PERMISOS.put(RECEPCION, new HashSet<>(Arrays.asList(
-                PACIENTES, CONSULTAS)));
+                PACIENTES, CITAS, CONSULTAS)));
+    }
+
+    public static boolean veTodasLasCitas(String rol) {
+        if (rol == null) {
+            return false;
+        }
+        String r = rol.trim().toUpperCase();
+        return ADMIN.equals(r) || RECEPCION.equals(r);
     }
 
     public static boolean puede(String rol, String modulo) {

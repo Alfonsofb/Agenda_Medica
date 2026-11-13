@@ -1,0 +1,81 @@
+.subtitulo-fecha {
+    margin: 6px 0 0;
+    color: #475569;
+    font-size: 16px;
+}
+
+.navegacion-dias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 12px 16px;
+    margin-bottom: 18px;
+}
+
+.filtros .campo {
+    min-width: 180px;
+}
+
+.boton.exito {
+    background: #15803d;
+}
+
+.boton.exito:hover {
+    background: #116530;
+}
+
+.estado {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.estado.programada {
+    background: #d5f0f0;
+    color: #0a5c5c;
+}
+
+.estado.confirmada {
+    background: #d9f3e8;
+    color: #0b5b45;
+}
+
+.estado.atendida {
+    background: #e2e8f0;
+    color: #334155;
+}
+
+.estado.no_asistio {
+    background: #fff0d6;
+    color: #8a5300;
+}
+
+.estado.cancelada {
+    background: #fbdde0;
+    color: #8a1f2b;
+}
+
+.campo textarea {
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    background: white;
+    font-family: inherit;
+    font-size: 14px;
+    resize: vertical;
+}
+
+.campo textarea:focus-visible {
+    outline: 3px solid #0d8a8a66;
+    outline-offset: 2px;
+}
